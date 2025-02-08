@@ -12,6 +12,10 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Secret Key (set it in .env for security)
 SECRET_KEY = env('SECRET_KEY')
+CHAPA_SECRET_KEY = env('CHAPA_SECRET_KEY')
+CHAPA_PUBLIC_KEY = env('CHAPA_PUBLIC_KEY')
+CHAPA_CALLBACK_URL = env('CHAPA_CALLBACK_URL')
+CHAPA_BASE_URL = env('CHAPA_BASE_URL', default='https://api.chapa.co/v1')
 
 # Debug mode
 DEBUG = env.bool('DEBUG', default=True)
@@ -108,14 +112,14 @@ LOGGING = {
     'disable_existing_loggers': False,
     'handlers': {
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
         'django': {
             'handlers': ['console'],
-            'level': 'DEBUG',
+            'level': 'INFO',
             'propagate': True,
         },
     },
